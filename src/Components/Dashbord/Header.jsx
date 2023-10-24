@@ -1,4 +1,4 @@
-import { Link, NavLink } from "react-router-dom";
+import {  NavLink } from "react-router-dom";
 
 import { AiOutlineMenu } from "react-icons/ai";
 import { RxCross1 } from "react-icons/rx";
@@ -9,7 +9,8 @@ const Header = () => {
         <>
         <NavLink onClick={()=>setMenu(false)} to={"/admin/my_profile"}>My Profile</NavLink>
         <NavLink onClick={()=>setMenu(false)} to={"My_site"}>My site</NavLink>
-        <NavLink onClick={()=>setMenu(false)} to={"products"}>Products</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"Add_product"}>Add product</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"My_products"}>My products</NavLink>
         <NavLink onClick={()=>setMenu(false)} to={"order"}>Orders</NavLink>
         </>
     )

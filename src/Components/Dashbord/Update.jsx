@@ -1,6 +1,11 @@
+import { useLoaderData, useNavigate } from 'react-router-dom';
 import swal from 'sweetalert';
 
-const Products = () => {
+const Update = () => {
+    const move=useNavigate()
+    const oldData=useLoaderData()
+    const {name,price,quantity ,catagory,discount,details,available,preorder,img,_id} =oldData
+    console.log(available,preorder,img)
   const formControll = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -12,10 +17,11 @@ const Products = () => {
     const catagory=form.catagory.value
     const available=form.Available.value
     const preorder=form.preorder.value
-    const img=form.preorder.value
-    const product={name,price,quantity ,catagory,discount,details,available,preorder,img}
-    
-    fetch("http://localhost:5000/admin/products",{
+    const img=form.img.value
+    const product={name,price,quantity,_id ,catagory,discount,details,available,preorder,img}
+ 
+
+    fetch("http://localhost:5000/admin/update",{
       method:"post",
       headers:{
         "content-type":"application/json"
@@ -24,19 +30,43 @@ const Products = () => {
     })
     .then(res=>res.json())
     .then((responce)=>{
-      if(responce.insertedId){
-        swal("success","product is added")
+      if(responce){
+        swal("success","product has updated.","success")
+        move(-1)
       }
     })
+    
+  }
+
+  const deletehandle=(e)=>{
+    e.preventDefault()
+    
+     fetch("http://localhost:5000/admin/delete",{
+      method:"delete",
+      headers:{
+        "content-type":"application/json"
+      },
+      body:JSON.stringify({id:_id})
+    })
+    .then(res=>res.json())
+    .then(responce=>{
+        if(responce){
+            move(-1)
+            swal("success!","product has deleted.","success")
+        }
+    })
+
   };
   return (
     <div>
+        <h1 className='text-center py-4 text-xl font-bold border-b-4 border-black mb-2 '>Update product.</h1>
       <form onSubmit={formControll} className="flex flex-col gap-4 px-1">
         <div className="w-full flex justify-between items-center">
           <label className="text-xl font-bold w-[40%] " htmlFor="Site_name">
             Product Name :
           </label>
           <input
+          defaultValue={name}
             name="name"
             type="text"
             placeholder="type here."
@@ -48,6 +78,7 @@ const Products = () => {
             Product Price :
           </label>
           <input
+          defaultValue={price}
             name="price"
             type="number"
             placeholder="type here."
@@ -60,6 +91,7 @@ const Products = () => {
           </label>
           <input
             name="quantity"
+            defaultValue={quantity}
             type="number"
             placeholder="Including units."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
@@ -72,6 +104,7 @@ const Products = () => {
           </label>
           <input
             name="discount"
+            defaultValue={discount}
             type="number"
             placeholder="In percent."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
@@ -83,6 +116,7 @@ const Products = () => {
           </label>
           <textarea
             name="details"
+            defaultValue={details}
             placeholder="type here."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] h-40 focus:outline-none"
           ></textarea>
@@ -94,6 +128,7 @@ const Products = () => {
 
           <select
             name="catagory"
+            defaultValue={catagory}
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           >
             <option value="" disabled selected>
@@ -125,6 +160,7 @@ const Products = () => {
             id="bestYes"
             type="radio"
             name="Available"
+            
             defaultValue="true"
             className="radio radio-primary"
           />
@@ -175,14 +211,16 @@ const Products = () => {
           <input
           name="img"
             type="text"
+            defaultValue={img}
             placeholder="Past imge link."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
         </div>
-        <button className="btn bg-red-300 font-bold ">Post</button>
+        <button className="btn bg-red-300 font-bold ">update</button>
+        <button onClick={deletehandle} className="btn bg-warning font-bold ">Delete</button>
       </form>
     </div>
   );
 };
 
-export default Products;
+export default Update;
