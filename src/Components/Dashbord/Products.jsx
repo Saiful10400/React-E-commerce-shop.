@@ -12,7 +12,7 @@ const Products = () => {
     const catagory=form.catagory.value
     const available=form.Available.value
     const preorder=form.preorder.value
-    const img=form.preorder.value
+    const img=form.img.value
     const product={name,price,quantity ,catagory,discount,details,available,preorder,img}
     
     fetch("http://localhost:5000/admin/products",{
@@ -26,6 +26,7 @@ const Products = () => {
     .then((responce)=>{
       if(responce.insertedId){
         swal("success","product is added")
+        e.target.reset()
       }
     })
   };
@@ -49,7 +50,7 @@ const Products = () => {
           </label>
           <input
             name="price"
-            type="number"
+            type="text"
             placeholder="type here."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
@@ -60,7 +61,7 @@ const Products = () => {
           </label>
           <input
             name="quantity"
-            type="number"
+            type="text"
             placeholder="Including units."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />

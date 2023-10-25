@@ -16,6 +16,7 @@ const PriveteDashbord = ({children}) => {
         return children
     }
     return children
+     
     // return (
     //     <div className="w-full h-screen flex justify-center items-center">
     //         <form onSubmit={formControll} className="bg-red-400 px-6 py-10 rounded-xl pt-16">
@@ -26,7 +27,7 @@ const PriveteDashbord = ({children}) => {
     //             </div>
     //             <div className="flex justify-between items-center mt-3 flex-col">
     //                 <label className="text-2xl w-full" htmlFor="upassword"> Your password :</label>
-    //                 <input name="password" type="text" id="upassword" placeholder="Type here" className="input input-bordered input-primary w-full " />
+    //                 <input name="password" type="password" id="upassword" placeholder="Type here" className="input input-bordered input-primary w-full " />
     //             </div>
     //             <button className="btn btn-primary w-full mt-5">Login</button>
     //         </form>

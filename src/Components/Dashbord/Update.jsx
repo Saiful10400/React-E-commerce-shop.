@@ -5,7 +5,8 @@ const Update = () => {
     const move=useNavigate()
     const oldData=useLoaderData()
     const {name,price,quantity ,catagory,discount,details,available,preorder,img,_id} =oldData
-    console.log(available,preorder,img)
+    
+    console.log(oldData)
   const formControll = (e) => {
     e.preventDefault();
     const form = e.target;
@@ -80,7 +81,7 @@ const Update = () => {
           <input
           defaultValue={price}
             name="price"
-            type="number"
+            type="text"
             placeholder="type here."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
@@ -92,7 +93,7 @@ const Update = () => {
           <input
             name="quantity"
             defaultValue={quantity}
-            type="number"
+            type="text"
             placeholder="Including units."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
