@@ -45,7 +45,7 @@ const router=createBrowserRouter([
       {
         path:"My_products",
         element:<Allproducts></Allproducts>,
-        loader:()=>fetch("http://localhost:5000/admin/products")
+        loader:()=>fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/products")
 
       },
       {
@@ -55,7 +55,7 @@ const router=createBrowserRouter([
       {
         path:"update/:id",
         element:<Update></Update>,
-        loader:({params})=>fetch(`http://localhost:5000/admin/products/${params.id}`)
+        loader:({params})=>fetch(`https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/products/${params.id}`)
       }
     ]
   }

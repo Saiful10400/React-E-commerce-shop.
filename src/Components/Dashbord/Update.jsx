@@ -22,7 +22,7 @@ const Update = () => {
     const product={name,price,quantity,_id ,catagory,discount,details,available,preorder,img}
  
 
-    fetch("http://localhost:5000/admin/update",{
+    fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/update",{
       method:"post",
       headers:{
         "content-type":"application/json"
@@ -42,7 +42,7 @@ const Update = () => {
   const deletehandle=(e)=>{
     e.preventDefault()
     
-     fetch("http://localhost:5000/admin/delete",{
+     fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/delete",{
       method:"delete",
       headers:{
         "content-type":"application/json"

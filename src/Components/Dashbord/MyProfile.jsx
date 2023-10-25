@@ -11,7 +11,7 @@ const MyProfile = () => {
         const profile={name,logo}
         console.log(profile)
 
-        fetch("http://localhost:5000/profile/update",{
+        fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/profile/update",{
             method:"post",
             headers:{
                 "content-type":"application/json"

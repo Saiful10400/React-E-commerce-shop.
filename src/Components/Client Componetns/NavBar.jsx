@@ -9,19 +9,26 @@ const NavBar = () => {
 const[profile,setProfile]=useState({})
     // api data fetch.
     useEffect(()=>{
-        fetch("http://localhost:5000/profile")
+        fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/profile")
         .then(res=>res.json())
         .then(data=>setProfile(data))
     },[])
     let li=(
         <>
-        <NavLink onClick={()=>setMenu(false)} to={"My_profile"}>My Profile</NavLink>
-        <NavLink onClick={()=>setMenu(false)} to={"My_site"}>My site</NavLink>
-        <NavLink onClick={()=>setMenu(false)} to={"Add_product"}>Add product</NavLink>
-        <NavLink onClick={()=>setMenu(false)} to={"My_products"}>My products</NavLink>
-        <NavLink onClick={()=>setMenu(false)} to={"order"}>Orders</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/Cooking (রান্না-বান্না)"}>Cooking (রান্না-বান্না)</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>Honey (মধু)</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>Mango (আম)</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>Nuts & Seeds (বাদাম এবং বীজ)</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory"}>Dry Fruits</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>Ghee (ঘি)</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>সুন্দরবনের মধু</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>Ghee And Sharisha OIL</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>Grocery (বাজার)</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>Tea/Snacks (চা-নাশতা)</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"/catagory/"}>Uncategorized</NavLink>
         </>
     )
+    
     const[menu ,setMenu]=useState(false)
     return (
       <>
@@ -31,29 +38,31 @@ const[profile,setProfile]=useState({})
               {!menu ? <AiOutlineMenu></AiOutlineMenu> : <RxCross1></RxCross1>}
               <span className="text-xl">Menu</span>
             </button>
-           <div className="flex justify-center items-center">
-           <img className="w-14 h-9 object-contain" src={profile?.logo} alt="" />
-           <span className="text-sm font-bold">{profile?.name}</span>
+           <div className="flex justify-center gap-2 items-center">
+           <img className="w-14 h-14 object-contain" src={profile?.logo} alt="" />
+           <span className="text-lg  font-bold">{profile?.name}</span>
            </div>
             <h1 className="text-4xl mr-2"><Link to={"/"}><IoBagHandleSharp></IoBagHandleSharp></Link></h1>
           </div>
-          <ul className="bg-red-500  text-2xl hidden md:flex justify-center items-center gap-4">
+          <ul className="bg-red-500   text-2xl hidden  justify-center items-center gap-4">
             {
                 li
             }
           </ul>
         </div>
-        <div className={`${menu ? "right-[0%]" : "right-full"} transition-all duration-500 flex top-[53px] z-30 absolute`}>
+        <div className={`${menu ? "right-[0%]" : "right-full"} transition-all duration-500 flex top-[72px] z-30 absolute`}>
         <div
-          className={`  bg-red-400 w-[50vw] h-[94vh] `}
+          className={`  bg-white w-[60vw] h-[94vh] `}
         >
-          <ul className="flex flex-col text-center font-bold gap-5 mt-3">
+          <ul className="flex flex-col text-start  font-bold gap-5 mt-3">
+            <h1 className="bg-green-500 py-2 text-white rounded
+            ">All product Catagory</h1>
             {
-                li
+               li 
             }
           </ul>
         </div>
-        <div onClick={()=>setMenu(false)} className="w-[50vw] h-[94vh]   "></div>
+        <div onClick={()=>setMenu(false)} className="w-[40vw] h-[94vh]   "></div>
         </div>
       </>
     );
