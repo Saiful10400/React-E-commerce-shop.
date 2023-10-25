@@ -7,7 +7,7 @@ import { useState } from "react";
 const Header = () => {
     let li=(
         <>
-        <NavLink onClick={()=>setMenu(false)} to={"/admin/my_profile"}>My Profile</NavLink>
+        <NavLink onClick={()=>setMenu(false)} to={"My_profile"}>My Profile</NavLink>
         <NavLink onClick={()=>setMenu(false)} to={"My_site"}>My site</NavLink>
         <NavLink onClick={()=>setMenu(false)} to={"Add_product"}>Add product</NavLink>
         <NavLink onClick={()=>setMenu(false)} to={"My_products"}>My products</NavLink>
@@ -17,7 +17,7 @@ const Header = () => {
     const[menu ,setMenu]=useState(false)
     return (
       <>
-        <div className="border-b-2 border-gray-300 mb-3">
+        <div className="border-b-2 bg-gray-200 border-gray-300 mb-3">
           <div className="flex justify-between md:hidden text-2xl font-bold py-2 ">
             <button className="text-4xl" onClick={() => setMenu(!menu)}>
               {!menu ? <AiOutlineMenu></AiOutlineMenu> : <RxCross1></RxCross1>}

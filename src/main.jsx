@@ -10,6 +10,7 @@ import Order from './Components/Dashbord/Order';
 import Home from "./Components/Client Componetns/Home";
 import Allproducts from "./Components/Dashbord/Allproducts";
 import Update from "./Components/Dashbord/Update";
+import PriveteDashbord from "./Components/Dashbord/PriveteDashbord";
 
 
 const router=createBrowserRouter([
@@ -19,10 +20,10 @@ const router=createBrowserRouter([
   },
   {
     path:"/admin",
-    element:<Dashbord></Dashbord>,
+    element:<PriveteDashbord><Dashbord></Dashbord></PriveteDashbord>,
     children:[
       {
-        path:"my_profile",
+        path:"My_profile",
         element:<MyProfile></MyProfile>
       },
       {
