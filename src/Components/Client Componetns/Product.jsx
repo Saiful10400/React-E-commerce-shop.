@@ -16,9 +16,9 @@ const Product = ({ item }) => {
     available,
     preorder,
     img,
-    _id,
+    _id,instock
   } = item;
-
+console.log(instock)
   return (
     <div data-aos="fade-up"
      className="border-2 border-gray-200 mx-4 py-3">
@@ -30,6 +30,8 @@ const Product = ({ item }) => {
         >
           Pre-order
         </h1>
+
+        <h1 className={`${instock && available==="true" ? "block" :"hidden"} absolute bottom-0 left-4 py-2 rounded-lg px-1 z-20 text-xl bg-red-600 text-white font-bold`}>{`( ${instock} )`} In stock</h1>
 
         <h1
           className={`${

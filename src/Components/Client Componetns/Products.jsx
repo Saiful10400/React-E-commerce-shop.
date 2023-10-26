@@ -6,7 +6,7 @@ const Products = () => {
     // data fetch from api.
     const[allpoducts,setProducts]=useState([])
     useEffect(()=>{
-        fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/products")
+        fetch("https://rifinalshop.vercel.app/admin/products")
         .then(res=>res.json())
         .then(responce=>setProducts(responce))
     },[])

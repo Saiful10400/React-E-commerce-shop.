@@ -9,7 +9,7 @@ const Slider = () => {
     // data fetch form api.
     const[sliderImg,setSliderImg]=useState({})
     useEffect(()=>{
-        fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/mysite")
+        fetch("https://rifinalshop.vercel.app/mysite")
         .then(res=>res.json())
         .then(data=>setSliderImg(data))
     },[])

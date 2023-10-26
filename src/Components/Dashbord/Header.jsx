@@ -32,7 +32,7 @@ const Header = () => {
         </div>
         <div className={`${menu ? "right-[0%]" : "right-full"} transition-all duration-500 flex top-[53px] z-30 absolute`}>
         <div
-          className={`  bg-red-400 w-[50vw] h-[94vh] `}
+          className={`bg-red-400 w-[50vw] h-[94vh] `}
         >
           <ul className="flex flex-col text-center font-bold gap-5 mt-3">
             {

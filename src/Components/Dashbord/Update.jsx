@@ -4,7 +4,7 @@ import swal from 'sweetalert';
 const Update = () => {
     const move=useNavigate()
     const oldData=useLoaderData()
-    const {name,price,quantity ,catagory,discount,details,available,preorder,img,_id} =oldData
+    const {name,price,quantity ,catagory,discount,details,available,preorder,img,_id,instock} =oldData
     
     console.log(oldData)
   const formControll = (e) => {
@@ -19,10 +19,11 @@ const Update = () => {
     const available=form.Available.value
     const preorder=form.preorder.value
     const img=form.img.value
-    const product={name,price,quantity,_id ,catagory,discount,details,available,preorder,img}
+    const instock=form.inStock.value
+    const product={name,price,quantity,_id ,catagory,discount,details,available,preorder,img,instock}
  
-
-    fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/update",{
+   
+    fetch("https://rifinalshop.vercel.app/admin/update",{
       method:"post",
       headers:{
         "content-type":"application/json"
@@ -42,7 +43,7 @@ const Update = () => {
   const deletehandle=(e)=>{
     e.preventDefault()
     
-     fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/delete",{
+     fetch("https://rifinalshop.vercel.app/admin/delete",{
       method:"delete",
       headers:{
         "content-type":"application/json"
@@ -81,11 +82,13 @@ const Update = () => {
           <input
           defaultValue={price}
             name="price"
-            type="text"
+            type="price"
             placeholder="type here."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
         </div>
+
+
         <div className="w-full flex justify-between items-center">
           <label className="text-xl font-bold w-[48%] " htmlFor="Site_name">
             Product Quantity :
@@ -98,6 +101,27 @@ const Update = () => {
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
         </div>
+
+
+        <div className="w-full flex justify-between items-start">
+          <label className="text-xl font-bold w-[45%] " htmlFor="Site_name">
+            In Stock :
+            <span className="text-sm font-light">(optional)</span>
+          </label>
+          <input
+            name="inStock"
+            defaultValue={instock}
+            type="text"
+            placeholder="including unit."
+            className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
+          />
+        </div>
+
+
+
+
+
+
         <div className="w-full flex justify-between items-start">
           <label className="text-xl font-bold w-[45%] " htmlFor="Site_name">
             Price Discount :
@@ -107,7 +131,7 @@ const Update = () => {
             name="discount"
             defaultValue={discount}
             type="number"
-            placeholder="In percent."
+            placeholder="In taka."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
         </div>
@@ -138,6 +162,7 @@ const Update = () => {
             <option value="Cooking (রান্না-বান্না)">Cooking (রান্না-বান্না)</option>
             <option value="Dry Fruits">Dry Fruits</option>
             <option value="Ghee (ঘি)">Ghee (ঘি)</option>
+            <option value="দই">দই</option>
             <option value="Ghee And Sharisha OIL">Ghee And Sharisha OIL</option>
             <option value="Grocery (বাজার)">Grocery (বাজার)</option>
             <option value="Honey (মধু)">Honey (মধু)</option>

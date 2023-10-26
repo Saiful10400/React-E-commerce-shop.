@@ -9,7 +9,7 @@ const NavBar = () => {
 const[profile,setProfile]=useState({})
     // api data fetch.
     useEffect(()=>{
-        fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/profile")
+        fetch("https://rifinalshop.vercel.app/profile")
         .then(res=>res.json())
         .then(data=>setProfile(data))
     },[])

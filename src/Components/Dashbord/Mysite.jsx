@@ -12,7 +12,7 @@ const Mysite = () => {
     console.log(banner1,banner2,banner3)
     const banner={banner1,banner2,banner3}
 
-    fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/My_site",{
+    fetch("https://rifinalshop.vercel.app/admin/My_site",{
         method:"post",
         headers:{
             "content-type":"application/json"

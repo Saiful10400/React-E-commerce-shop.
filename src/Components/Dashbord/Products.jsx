@@ -13,9 +13,10 @@ const Products = () => {
     const available=form.Available.value
     const preorder=form.preorder.value
     const img=form.img.value
-    const product={name,price,quantity ,catagory,discount,details,available,preorder,img}
+    const instock=form.inStock.value
+    const product={name,price,quantity ,catagory,discount,details,available,preorder,img,instock}
     
-    fetch("https://rifinalshop-lw5sl7gf8-saifuls-projects-92f6e13c.vercel.app/admin/products",{
+    fetch("https://rifinalshop.vercel.app/admin/products",{
       method:"post",
       headers:{
         "content-type":"application/json"
@@ -50,7 +51,7 @@ const Products = () => {
           </label>
           <input
             name="price"
-            type="text"
+            type="number"
             placeholder="type here."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
@@ -66,6 +67,22 @@ const Products = () => {
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
         </div>
+
+
+
+        <div className="w-full flex justify-between items-start">
+          <label className="text-xl font-bold w-[45%] " htmlFor="Site_name">
+            In Stock :
+            <span className="text-sm font-light">(optional)</span>
+          </label>
+          <input
+            name="inStock"
+            type="text"
+            placeholder="including unit."
+            className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
+          />
+        </div>
+
         <div className="w-full flex justify-between items-start">
           <label className="text-xl font-bold w-[45%] " htmlFor="Site_name">
             Price Discount :
@@ -74,10 +91,15 @@ const Products = () => {
           <input
             name="discount"
             type="number"
-            placeholder="In percent."
+            placeholder="In taka."
             className="input text-lg font-normal input-bordered input-secondary w-[50%] focus:outline-none"
           />
         </div>
+
+
+
+
+
         <div className="w-full flex justify-between items-center">
           <label className="text-xl font-bold w-[40%] " htmlFor="Site_name">
             Product Description :
@@ -103,6 +125,7 @@ const Products = () => {
             <option value="Cooking (রান্না-বান্না)">Cooking (রান্না-বান্না)</option>
             <option value="Dry Fruits">Dry Fruits</option>
             <option value="Ghee (ঘি)">Ghee (ঘি)</option>
+            <option value="দই">দই</option>
             <option value="Ghee And Sharisha OIL">Ghee And Sharisha OIL</option>
             <option value="Grocery (বাজার)">Grocery (বাজার)</option>
             <option value="Honey (মধু)">Honey (মধু)</option>
